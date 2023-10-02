@@ -1,0 +1,23 @@
+
+// conexión se simula la conexión con un BD
+
+//throw new IllegalStateException();-- Cuando la conexión con BD no fue exitosa
+
+//finally es la parte final de try{} catch{} finally { esta parte se ejecuta Cuando se ejecute el try{} o  catch{}. --Siempre finally se ejecutará, para realizar una acción que debe de ejecutarse si importar el caso }
+
+//Finally no es obligatori en el try{} catch{}pero el try{} no puede estar solo simpre debe de tener un catch{} o un finally{Solo puede tener un finally} O en su defecto los tres y su orden seria:
+ 
+1-try{}
+2-catch{}
+3-finally{}
+
+
+//implements AutoCloseable:
+tiene un solo metodo close
+
+
+*que existe un bloque finally, útil para cerrar recursos (como conexión);
+*cuando hay un bloque finally, el bloque de catch es opcional;
+*que el bloque * finally * se ejecuta siempre, sin o con excepción;
+*cómo utilizar try-with-resources.
+
