@@ -2,6 +2,12 @@ package bytebank;
 
 public abstract class Cuenta {
 
+    //public-- se pueden llamar desde donde sea. +Accesible desde cualquier parte.
+    //default-->Es el modificador de acceso por defecto cuando una clase no tiene modificador y solo es visible en el mismo paquete.
+    //protected-->permite ver a nivel de paquete y de herencia .
+    //private-->solo desde la clase misma
+
+
     protected double saldo;
     private int agencia = 1;
     private int numero;
