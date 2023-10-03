@@ -1,37 +1,35 @@
-package bytebank;
+package com.bytebank.modelo;
 
 /**
- * @author :
- * @param;
- * @return;
- * @throws;
- * @version;
- * */
-
-
+ * Cuenta va a crear nuevas instancias de CuentaCorriente
+ * 
+ * @version 1.0
+ * @author diegorojas
+ *
+ */
 public abstract class Cuenta {
+	
+	// public      // Accesible desde cualquier parte
+	// --default   // Accesible dentro del paquete
+	// --protected // default + clases hijas
+	// ---private  // solo desde la clase misma
 
-
-
-    //public-- se pueden llamar desde donde sea. +Accesible desde cualquier parte.
-    //default-->Es el modificador de acceso por defecto cuando una clase no tiene modificador y solo es visible en el mismo paquete.
-    //protected-->permite ver a nivel de paquete y de herencia .
-    //private-->solo desde la clase misma
-
-
-    protected double saldo;
+	protected double saldo;
     private int agencia = 1;
     private int numero;
     private Cliente titular = new Cliente();
 
     private static int total;
 
+    /**
+     * Instancia una nueva cuenta sin parametros
+     */
     public Cuenta() {
 
     }
 
     /**
-     * Intancia una cuenta usando agencia y numero
+     * Instancia una cuenta usando agencia y numero
      * @param agencia
      * @param numero
      */
@@ -43,21 +41,30 @@ public abstract class Cuenta {
         Cuenta.total ++;
     }
 
-
     public abstract void deposita(double valor);
 
-    public boolean saca(double valor) {
-        if(this.saldo >= valor) {
-            this.saldo -= valor;
-            return true;
-        } else {
-            return false;
-        }
+    /**
+     * Este metodo retira dinero de la cuenta y si ocurre un error
+     * devuelve una excepcion.
+     * @param valor
+     * @throws SaldoInsuficienteException
+     */
+    public void saca(double valor) throws SaldoInsuficienteException {
+    	if (this.saldo < valor) {
+    		throw new SaldoInsuficienteException("No tienes saldo");
+    	}
+    	
+        this.saldo -= valor;
     }
 
     public boolean transfiere(double valor, Cuenta destino) {
         if(this.saldo >= valor) {
-            this.saca(valor);
+            try {
+				this.saca(valor);
+			} catch (SaldoInsuficienteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             destino.deposita(valor);
             return true;
         } else {
@@ -99,6 +106,12 @@ public abstract class Cuenta {
 
     public static int getTotal() {
         return Cuenta.total;
+    }
+    
+    @Override
+    public String toString() {
+    	String cuenta = "Numero: " + this.numero + ", Agencia:" + this.agencia;
+    	return cuenta;
     }
 
 }

@@ -1,0 +1,63 @@
+javadoc(Documentacion tecnica)
+
+/**
+ * @author :
+ * @param;
+ * @return;
+ * @throws;
+ * @version;
+ * */
+
+se requiere el jdk y en intelille IDE en tools
+
+generate JavaDoc---> este genera un archivo html 
+  con toda las clases  y sus relaciones de gerarquia , Constructores y metodos.
+
+---------------------------------------------
+Ya vimos en esta clase algunas tag (o anotaciones) de javadoc como @version o @author.
+
+Aquí está la lista completa:
+
+@author (usado en la clase o interfaz)
+@version (usado en la clase o interfaz)
+@param (usado en el método y constructor)
+@return (usado solo en el método)
+@exception o @throws (en el método o constructor)
+@see
+@since
+@serial
+@deprecated
+Es importante que las etiquetas javadoc existan solo para estandarizar algunos datos fundamentales de su código fuente, como el autor y la versión.
+
+************************************************
+Archivos .JAR --> son muy parecidos a los archivos .zip 
+
+Este se genera dando clieck derecho en el proyecto exportandolo como .Jar en la carpeta Java.
+
+¿Que es un archivo .Jar ?
+
+ es el comprimido que java genera del bytecode para ser usado y compartido con otro programadores
+
+
+----------
+Usando bibliotecas JAR
+
+1 se crea un proyecto como bytebank-libreria
+2- con el src se da click derecho y se crea un packages ejp com.bytebank.test y acep .. se cre el paquete .
+3- luego se crea la class TestLibreria y luego se crea el main a la clase.(Como no se quiere volver escribir ese codigo se copia el Jar de bytebank-exportado.jar y se pasa a dentro del proyecto libreria ) 
+
+3-luego el Jar dentro de el nuevo proyecto, se le crea una carpeta de lib y se envia todo el Jar a esta nueva carpeta. 
+
+4-Esta la libreria pero a uun no se a agregado a el conjunto de libreriad del proyecto, para esto debemos de realizar el siguiente proceso, es crear el Build path --> dentro de la carpeta lib-- en el archivo bytebank-exportado.jar se da click derecho -- Build path--  agregar a Build path (es donde el ide consume todas las librerias para compilar el proyecto. )
+
+Dependencias es = libreias.
+------------------------
+
+JAR ejecutables.
+
+El metodo main es el metodo central que ejecuta una accion es nuestro codigo
+Jar ejecutables VS Jar no ejecutables es que el Jar ejecutable tiene 
+el Mainfest-version :1.0 y el Main-Class: com.bytebank.test.TestGerente
+
+
+
